@@ -5,15 +5,15 @@
 # stub: googl 0.7.1 ruby lib
 
 Gem::Specification.new do |s|
-  s.name = "googl"
-  s.version = "0.7.1"
+  s.name = "googl".freeze
+  s.version = "0.7.2".freeze
 
-  s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.require_paths = ["lib"]
-  s.authors = ["Jesus Lopes"]
-  s.date = "2015-05-21"
-  s.description = "Small library for Google URL Shortener API"
-  s.email = "jlopes@zigotto.com.br"
+  s.required_rubygems_version = Gem::Requirement.new(">= 0".freeze) if s.respond_to? :required_rubygems_version=
+  s.require_paths = ["lib".freeze]
+  s.authors = ["Jesus Lopes".freeze, "Matheus Oliveira".freeze]
+  s.date = "2018-02-01"
+  s.description = "Small library for Google URL Shortener API".freeze
+  s.email = "jlopes@zigotto.com.br".freeze
   s.extra_rdoc_files = [
     "README.markdown"
   ]
@@ -65,36 +65,36 @@ Gem::Specification.new do |s|
     "spec/shared_examples.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/zigotto/googl"
-  s.licenses = ["MIT"]
-  s.rubygems_version = "2.4.5"
-  s.summary = "Wrapper for Google URL Shortener API"
+  s.homepage = "http://github.com/zigotto/googl".freeze
+  s.licenses = ["MIT".freeze]
+  s.rubygems_version = "2.7.4".freeze
+  s.summary = "Wrapper for Google URL Shortener API".freeze
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<httparty>, ["~> 0.10"])
-      s.add_runtime_dependency(%q<json>, [">= 1.4.6"])
-      s.add_development_dependency(%q<rspec>, ["~> 2.10"])
-      s.add_development_dependency(%q<jeweler>, [">= 1.8.3"])
-      s.add_development_dependency(%q<webmock>, ["~> 1.8.6"])
-      s.add_development_dependency(%q<timecop>, ["~> 0.7.1"])
+      s.add_runtime_dependency(%q<httparty>.freeze, ["~> 0.10"])
+      s.add_runtime_dependency(%q<json>.freeze, [">= 1.4.6"])
+      s.add_development_dependency(%q<rspec>.freeze, ["~> 3.7"])
+      s.add_development_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+      s.add_development_dependency(%q<webmock>.freeze, ["~> 3.3.0"])
+      s.add_development_dependency(%q<timecop>.freeze, ["~> 0.9.1"])
     else
-      s.add_dependency(%q<httparty>, ["~> 0.10"])
-      s.add_dependency(%q<json>, [">= 1.4.6"])
-      s.add_dependency(%q<rspec>, ["~> 2.10"])
-      s.add_dependency(%q<jeweler>, [">= 1.8.3"])
-      s.add_dependency(%q<webmock>, ["~> 1.8.6"])
-      s.add_dependency(%q<timecop>, ["~> 0.7.1"])
+      s.add_dependency(%q<httparty>.freeze, ["~> 0.10"])
+      s.add_dependency(%q<json>.freeze, [">= 1.4.6"])
+      s.add_dependency(%q<rspec>.freeze, ["~> 3.7"])
+      s.add_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+      s.add_dependency(%q<webmock>.freeze, ["~> 3.3.0"])
+      s.add_dependency(%q<timecop>.freeze, ["~> 0.9.1"])
     end
   else
-    s.add_dependency(%q<httparty>, ["~> 0.10"])
-    s.add_dependency(%q<json>, [">= 1.4.6"])
-    s.add_dependency(%q<rspec>, ["~> 2.10"])
-    s.add_dependency(%q<jeweler>, [">= 1.8.3"])
-    s.add_dependency(%q<webmock>, ["~> 1.8.6"])
-    s.add_dependency(%q<timecop>, ["~> 0.7.1"])
+    s.add_dependency(%q<httparty>.freeze, ["~> 0.10"])
+    s.add_dependency(%q<json>.freeze, [">= 1.4.6"])
+    s.add_dependency(%q<rspec>.freeze, ["~> 3.7"])
+    s.add_dependency(%q<jeweler>.freeze, [">= 2.3.9"])
+    s.add_dependency(%q<webmock>.freeze, ["~> 3.3.0"])
+    s.add_dependency(%q<timecop>.freeze, ["~> 0.9.1"])
   end
 end
 
