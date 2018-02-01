@@ -16,13 +16,12 @@ module Googl
       #
       def history(options={})
         return unless authorized?
-        resp = (options.nil? || options.empty?) ? get(Googl::Utils::API_HISTORY_URL) : get(Googl::Utils::API_HISTORY_URL, :query => options)
-        case resp.code
-        when 200
-          self.items = resp.parsed_response.to_openstruct
-        else
-          raise exception("#{resp.code} #{resp.parsed_response}")
-        end
+        resp = get(Googl::Utils::API_HISTORY_URL)
+        resp = get(Googl::Utils::API_HISTORY_URL, query: options) unless (options.nil? || options.empty?)
+
+        raise exception("#{resp.code} #{resp.parsed_response}") unless resp.code.eql?(200)
+
+        self.items = resp.parsed_response.to_openstruct
       end
 
       private

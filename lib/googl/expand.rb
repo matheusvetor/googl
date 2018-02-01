@@ -7,21 +7,16 @@ module Googl
     # Expands a short URL or gets creation time and analytics. See Googl.expand
     #
     def initialize(options={})
+      options.delete_if { |key, value| value.nil? }
 
-      options.delete_if {|key, value| value.nil?}
+      resp = get(API_URL, query: options)
+      raise exception("#{resp.code} #{resp.message}") unless resp.code.eql?(200)
 
-      resp = get(API_URL, :query => options)
-      if resp.code == 200
-        self.created    = resp['created'] if resp.has_key?('created')
-        self.long_url   = resp['longUrl']
-        self.analytics  = resp['analytics'].to_openstruct if resp.has_key?('analytics')
-        self.status     = resp['status']
-        self.short_url  = resp['id']
-      else
-        raise exception("#{resp.code} #{resp.message}")
-      end
+      self.created    = resp['created'] if resp.key?('created')
+      self.long_url   = resp['longUrl']
+      self.analytics  = resp['analytics'].to_openstruct if resp.key?('analytics')
+      self.status     = resp['status']
+      self.short_url  = resp['id']
     end
-
   end
-
 end

@@ -11,23 +11,17 @@ module Googl
       options = { 'longUrl' => long_url }
       shorten_url = API_URL
 
-      if (user_ip != nil && !user_ip.empty?)
-        options["userIp"] = user_ip
-      end
-      if (api_key != nil && !api_key.empty?)
-        shorten_url += "?key=#{api_key}"
-      end
+      options['userIp'] = user_ip unless user_ip.nil? || user_ip.empty?
+
+      shorten_url << "?key=#{api_key}" unless api_key.nil? || api_key.empty?
 
       options_json = options.to_json
-      resp = post(shorten_url, :body => options_json)
-      if resp.code == 200
-        self.short_url  = resp['id']
-        self.long_url   = resp['longUrl']
-      else
-        raise exception(resp.parsed_response)
-      end
+      resp = post(shorten_url, body: options_json)
+
+      raise exception(resp.parsed_response) unless resp.code.eql?(200)
+
+      self.short_url  = resp['id']
+      self.long_url   = resp['longUrl']
     end
-
   end
-
 end
