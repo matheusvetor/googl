@@ -1,7 +1,5 @@
 module Googl
-
   class ClientLogin
-
     include Googl::Utils
 
     attr_accessor :code, :items
@@ -10,11 +8,11 @@ module Googl
     #
     def initialize(email, passwd)
       modify_headers('Content-Type' => 'application/x-www-form-urlencoded')
-      resp = post(API_CLIENT_LOGIN_URL, :body => params.merge!('Email' => email, 'Passwd' => passwd))
+      resp = post(API_CLIENT_LOGIN_URL, body: params.merge!('Email' => email, 'Passwd' => passwd))
       self.code = resp.code
-      if resp.code == 200
+      if resp.code.eql?(200)
         token = resp.split('=').last.gsub(/\n/, '')
-        modify_headers("Authorization" => "GoogleLogin auth=#{token}")
+        modify_headers('Authorization' => "GoogleLogin auth=#{token}")
       else
         raise exception("#{resp.code} #{resp.parsed_response}")
       end
@@ -59,7 +57,5 @@ module Googl
     def params
       {'accountType' => 'HOSTED_OR_GOOGLE', 'service' => 'urlshortener', 'source' => 'gem-googl-ruby'}
     end
-
   end
-
 end

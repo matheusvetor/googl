@@ -1,7 +1,5 @@
 module Googl
-
   class Base
-    
     # URL for QR Code
     #
     #   url = Googl.shorten('http://goo.gl/ump4S')
@@ -25,7 +23,5 @@ module Googl
     def info
       "#{short_url}.info"
     end
-
   end
-
 end

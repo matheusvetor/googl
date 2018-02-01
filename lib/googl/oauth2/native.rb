@@ -1,8 +1,6 @@
 module Googl
   module OAuth2
-
     class Native
-
       include Googl::Utils
       include Googl::OAuth2::Utils
 
@@ -12,14 +10,12 @@ module Googl
       end
 
       def authorize_url
-        make_authorize_url("urn:ietf:wg:oauth:2.0:oob")
+        make_authorize_url('urn:ietf:wg:oauth:2.0:oob')
       end
 
       def request_access_token(code)
         request_token(code)
       end
-
     end
-
   end
 end

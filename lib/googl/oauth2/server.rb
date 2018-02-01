@@ -1,8 +1,6 @@
 module Googl
   module OAuth2
-
     class Server
-
       include Googl::Utils
       include Googl::OAuth2::Utils
 
@@ -21,8 +19,6 @@ module Googl
       def request_access_token(code)
         request_token(code, redirect_uri)
       end
-
     end
-
   end
 end

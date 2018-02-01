@@ -1,7 +1,5 @@
 module Googl
-
   class Shorten < Base
-
     include Googl::Utils
 
     attr_accessor :short_url, :long_url
@@ -10,7 +8,7 @@ module Googl
     #
     def initialize(long_url, user_ip = nil, api_key = nil)
       modify_headers('Content-Type' => 'application/json')
-      options = {"longUrl" => long_url}
+      options = { 'longUrl' => long_url }
       shorten_url = API_URL
 
       if (user_ip != nil && !user_ip.empty?)

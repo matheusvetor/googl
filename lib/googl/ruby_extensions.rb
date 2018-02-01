@@ -4,7 +4,7 @@ class String # :nodoc:
     self.gsub(/::/, '/').
       gsub(/([A-Z]+)([A-Z][a-z])/,'\1_\2').
       gsub(/([a-z\d])([A-Z])/,'\1_\2').
-      tr("-", "_").
+      tr('-', '_').
       downcase
   end
 end
@@ -27,9 +27,10 @@ class Hash #:nodoc:
   def move(from, to)
     self[to] = delete(from) if has_key?(from)
     self
-  end  
+  end
+
   def to_openstruct
-    map = inject({}) do |mapped, (key, value)| 
+    map = inject({}) do |mapped, (key, value)|
       mapped[key.underscore] = value.to_openstruct
       mapped.move('id', 'label')
     end

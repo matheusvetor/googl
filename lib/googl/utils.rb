@@ -1,11 +1,9 @@
 module Googl
-
   module Utils # :nodoc:
-
     API_URL              = 'https://www.googleapis.com/urlshortener/v1/url'
-    API_HISTORY_URL      = "https://www.googleapis.com/urlshortener/v1/url/history"
-    API_CLIENT_LOGIN_URL = "https://www.google.com/accounts/ClientLogin"
-    SCOPE_URL            = "https://www.googleapis.com/auth/urlshortener"
+    API_HISTORY_URL      = 'https://www.googleapis.com/urlshortener/v1/url/history'
+    API_CLIENT_LOGIN_URL = 'https://www.google.com/accounts/ClientLogin'
+    SCOPE_URL            = 'https://www.googleapis.com/auth/urlshortener'
 
     private
 
@@ -24,7 +22,5 @@ module Googl
     def exception(msg)
       Googl::Error.new(msg)
     end
-
   end
-
 end

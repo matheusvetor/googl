@@ -1,7 +1,5 @@
 module Googl
-
   class Expand < Base
-
     include Googl::Utils
 
     attr_accessor :long_url, :analytics, :status, :short_url, :created
